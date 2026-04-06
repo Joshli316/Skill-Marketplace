@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg-page text-text-primary font-sans antialiased;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-border rounded-card shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply shadow-card-hover;
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply bg-accent-blue text-white rounded-button px-4 py-2 font-medium
+           transition-colors duration-150 ease-out;
+  }
+
+  .btn-primary:hover {
+    @apply bg-blue-600;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-text-primary border border-border rounded-button px-4 py-2 font-medium
+           transition-colors duration-150 ease-out;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-gray-50;
+  }
+
+  .search-input {
+    @apply w-full rounded-search border-2 border-border px-4 py-3 text-base
+           font-sans outline-none transition-all duration-200;
+  }
+
+  .search-input:focus {
+    @apply border-accent-blue shadow-search-focus;
+  }
+
+  .code-block {
+    @apply bg-code-bg rounded-lg p-3 font-mono text-sm overflow-x-auto;
+  }
+
+  .code-pill {
+    @apply inline-block bg-code-bg rounded-md px-2 py-0.5 font-mono text-sm text-text-secondary;
+  }
+
+  .copy-btn {
+    @apply absolute top-2 right-2 bg-white/80 hover:bg-white border border-border
+           rounded-md px-2 py-1 text-xs text-text-secondary transition-colors duration-150;
+  }
+}

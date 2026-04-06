@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#f8f9fb"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e5ea" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Category color dots -->
+  <circle cx="200" cy="180" r="60" fill="#8b5cf6" opacity="0.1"/>
+  <circle cx="400" cy="120" r="40" fill="#3b82f6" opacity="0.1"/>
+  <circle cx="900" cy="200" r="50" fill="#10b981" opacity="0.1"/>
+  <circle cx="1000" cy="150" r="35" fill="#f59e0b" opacity="0.1"/>
+  <circle cx="300" cy="450" r="45" fill="#06b6d4" opacity="0.1"/>
+  <circle cx="850" cy="480" r="55" fill="#ef4444" opacity="0.1"/>
+
+  <!-- Main title -->
+  <text x="600" y="260" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#1a1d23">Claude Code Skills</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="320" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#6b7280">Browse, search, and install community skills</text>
+
+  <!-- Stats -->
+  <text x="600" y="400" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#3b82f6">28 skills  ·  7 categories  ·  Open source</text>
+
+  <!-- Category pills -->
+  <rect x="270" y="440" rx="12" ry="12" width="90" height="28" fill="#8b5cf6" opacity="0.15"/>
+  <text x="315" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#8b5cf6">Workflow</text>
+
+  <rect x="375" y="440" rx="12" ry="12" width="80" height="28" fill="#10b981" opacity="0.15"/>
+  <text x="415" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#10b981">Quality</text>
+
+  <rect x="470" y="440" rx="12" ry="12" width="80" height="28" fill="#3b82f6" opacity="0.15"/>
+  <text x="510" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#3b82f6">Design</text>
+
+  <rect x="565" y="440" rx="12" ry="12" width="82" height="28" fill="#f59e0b" opacity="0.15"/>
+  <text x="606" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#f59e0b">Content</text>
+
+  <rect x="662" y="440" rx="12" ry="12" width="76" height="28" fill="#ef4444" opacity="0.15"/>
+  <text x="700" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#ef4444">Deploy</text>
+
+  <rect x="753" y="440" rx="12" ry="12" width="86" height="28" fill="#06b6d4" opacity="0.15"/>
+  <text x="796" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#06b6d4">Learning</text>
+
+  <rect x="854" y="440" rx="12" ry="12" width="72" height="28" fill="#6b7280" opacity="0.15"/>
+  <text x="890" y="459" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#6b7280">Utility</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="600" width="1200" height="30" fill="#1a1d23"/>
+  <text x="600" y="620" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#6b7280">github.com/Joshli316/Skill-Marketplace</text>
+</svg>
