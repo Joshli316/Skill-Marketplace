@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skill-marketplace.pages.dev/sitemap.xml

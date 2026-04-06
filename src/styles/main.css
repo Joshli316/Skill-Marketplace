@@ -65,4 +65,24 @@
     @apply absolute top-2 right-2 bg-white/80 hover:bg-white border border-border
            rounded-md px-2 py-1 text-xs text-text-secondary transition-colors duration-150;
   }
+
+  /* Hide scrollbar on filter pills */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Focus-visible styles for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-blue;
+  }
+
+  .btn-primary:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-blue ring-2 ring-white;
+  }
 }

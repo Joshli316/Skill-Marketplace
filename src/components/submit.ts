@@ -1,12 +1,13 @@
 import { nav, footer } from './home';
+import { escapeHtml } from '../utils';
 
 export function submitPage(): string {
   return `
     ${nav()}
 
-    <section class="max-w-3xl mx-auto px-4 pt-8 pb-16">
+    <section id="main" class="max-w-3xl mx-auto px-4 pt-8 pb-16">
       <h1 class="text-3xl font-bold text-text-primary mb-4">Submit a Skill</h1>
-      <p class="text-lg text-text-secondary mb-8">Share your Claude Code skills with the community. Skills are reusable prompt templates that teach Claude Code new workflows — from deploying apps to running design reviews.</p>
+      <p class="text-lg text-text-secondary mb-8">Got a Claude Code skill worth sharing? Add it to the catalog in four steps.</p>
 
       <!-- Steps -->
       <div class="space-y-6 mb-10">
@@ -68,10 +69,3 @@ description: Use when [trigger scenario]. Does [what it does].
   `;
 }
 
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}

@@ -30,13 +30,13 @@ export function homePage(): string {
     ${nav()}
 
     <!-- Hero -->
-    <section class="pt-20 pb-16 px-4 text-center">
+    <section id="main" class="pt-20 pb-16 px-4 text-center">
       <div class="max-w-3xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-bold text-text-primary mb-4 tracking-tight">Claude Code Skills</h1>
-        <p class="text-lg text-text-secondary mb-8 max-w-xl mx-auto">Find, install, and share skills that supercharge your Claude Code workflow.</p>
+        <p class="text-lg text-text-secondary mb-8 max-w-xl mx-auto">Browse community-built skills for Claude Code. Install with one command.</p>
         <div class="max-w-lg mx-auto">
           <input type="text" id="hero-search" placeholder="Search skills... (e.g. deploy, refactor, test)"
-            class="search-input text-center" autocomplete="off">
+            class="search-input text-center" autocomplete="off" aria-label="Search skills">
         </div>
       </div>
     </section>
@@ -76,7 +76,7 @@ export function homePage(): string {
     <section class="pb-20 px-4 text-center">
       <div class="max-w-xl mx-auto card p-8">
         <h2 class="text-2xl font-semibold text-text-primary mb-3">Built a skill? Share it.</h2>
-        <p class="text-text-secondary mb-6">Contribute to the community by submitting your custom Claude Code skills.</p>
+        <p class="text-text-secondary mb-6">Add your own skills to the catalog. All it takes is a pull request.</p>
         <a href="#/submit" class="btn-primary inline-block">Submit a Skill</a>
       </div>
     </section>
@@ -86,7 +86,16 @@ export function homePage(): string {
 }
 
 export function nav(): string {
+  const hash = typeof window !== 'undefined' ? window.location.hash : '';
+  const path = hash.slice(1).split('?')[0] || '/';
+
+  function linkClass(route: string): string {
+    const isActive = path === route || (route === '/browse' && path.startsWith('/skill/'));
+    return `text-sm transition-colors no-underline ${isActive ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary'}`;
+  }
+
   return `
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent-blue focus:text-white focus:px-4 focus:py-2 focus:rounded-button">Skip to content</a>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
       <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <a href="#/" class="flex items-center gap-2 no-underline">
@@ -94,20 +103,20 @@ export function nav(): string {
           <span class="code-pill text-xs">for Claude Code</span>
         </a>
         <div class="hidden sm:flex items-center gap-6">
-          <a href="#/browse" class="text-sm text-text-secondary hover:text-text-primary transition-colors no-underline">Browse</a>
-          <a href="#/submit" class="text-sm text-text-secondary hover:text-text-primary transition-colors no-underline">Submit</a>
-          <a href="#/about" class="text-sm text-text-secondary hover:text-text-primary transition-colors no-underline">About</a>
+          <a href="#/browse" class="${linkClass('/browse')}">Browse</a>
+          <a href="#/submit" class="${linkClass('/submit')}">Submit</a>
+          <a href="#/about" class="${linkClass('/about')}">About</a>
         </div>
-        <button id="mobile-menu-btn" class="sm:hidden p-2 -mr-2 text-text-secondary" aria-label="Menu">
+        <button id="mobile-menu-btn" class="sm:hidden p-2 -mr-2 text-text-secondary" aria-label="Menu" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="15" x2="17" y2="15"/>
           </svg>
         </button>
       </div>
       <div id="mobile-menu" class="hidden sm:hidden border-t border-border bg-white px-4 pb-3">
-        <a href="#/browse" class="block py-2 text-sm text-text-secondary hover:text-text-primary no-underline">Browse</a>
-        <a href="#/submit" class="block py-2 text-sm text-text-secondary hover:text-text-primary no-underline">Submit</a>
-        <a href="#/about" class="block py-2 text-sm text-text-secondary hover:text-text-primary no-underline">About</a>
+        <a href="#/browse" class="block py-2 ${linkClass('/browse')}">Browse</a>
+        <a href="#/submit" class="block py-2 ${linkClass('/submit')}">Submit</a>
+        <a href="#/about" class="block py-2 ${linkClass('/about')}">About</a>
       </div>
     </nav>
   `;

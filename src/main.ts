@@ -21,8 +21,11 @@ document.addEventListener('click', (e) => {
 
   // Mobile menu toggle
   if (target.closest('#mobile-menu-btn')) {
+    const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     menu?.classList.toggle('hidden');
+    const expanded = !menu?.classList.contains('hidden');
+    btn?.setAttribute('aria-expanded', String(expanded));
     return;
   }
 
@@ -78,6 +81,9 @@ document.addEventListener('click', (e) => {
       const original = copyBtn.textContent;
       copyBtn.textContent = 'Copied!';
       setTimeout(() => { copyBtn.textContent = original; }, 1500);
+    }).catch(() => {
+      copyBtn.textContent = 'Failed';
+      setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
     });
     return;
   }
@@ -109,8 +115,7 @@ document.addEventListener('input', (e) => {
   }
 
   if (target.id === 'hero-search') {
-    // Debounce hero search — navigate to browse on input
-    navigate(`/browse?q=${encodeURIComponent(target.value)}`);
+    // Don't navigate on every keystroke — wait for Enter or use the keydown handler
     return;
   }
 });

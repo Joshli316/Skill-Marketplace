@@ -5,6 +5,7 @@ import { categoryFilterPill } from './category-pill';
 import { searchSkills, filterByCategory, sortSkills } from '../search';
 import { getQueryParams } from '../router';
 import { nav, footer } from './home';
+import { escapeAttr } from '../utils';
 
 const allSkills = skills as Skill[];
 
@@ -28,26 +29,27 @@ export function browsePage(): string {
   const cards = filtered.length > 0
     ? filtered.map((s) => skillCard(s)).join('')
     : `<div class="col-span-full text-center py-16">
-        <p class="text-text-secondary text-lg mb-4">No skills match your search</p>
-        <button id="clear-filters" class="btn-secondary">Clear filters</button>
+        <p class="text-lg text-text-primary mb-2">No matches</p>
+        <p class="text-text-secondary mb-6">Try a different search term or category.</p>
+        <button id="clear-filters" class="btn-secondary">Show all skills</button>
       </div>`;
 
   return `
     ${nav()}
 
-    <section class="pt-8 pb-4 px-4">
+    <section id="main" class="pt-8 pb-4 px-4">
       <div class="max-w-5xl mx-auto">
         <h1 class="text-3xl font-bold text-text-primary mb-6">Browse Skills</h1>
 
         <!-- Search -->
-        <div class="mb-6">
+        <div class="mb-6" role="search">
           <input type="text" id="browse-search" placeholder="Search by name, description, or trigger..."
-            class="search-input" value="${escapeAttr(query)}" autocomplete="off">
+            class="search-input" value="${escapeAttr(query)}" autocomplete="off" aria-label="Search skills">
         </div>
 
         <!-- Filters row -->
         <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-          <div class="flex gap-2 overflow-x-auto pb-1 -mb-1" id="category-filters">
+          <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mb-1" id="category-filters">
             ${filterPills}
           </div>
           <div class="flex items-center gap-2 sm:ml-auto shrink-0">
@@ -57,7 +59,7 @@ export function browsePage(): string {
         </div>
 
         <!-- Results count -->
-        <p class="text-sm text-text-secondary mb-4">${filtered.length} skill${filtered.length !== 1 ? 's' : ''}</p>
+        <p class="text-sm text-text-secondary mb-4" aria-live="polite">${filtered.length} skill${filtered.length !== 1 ? 's' : ''}</p>
 
         <!-- Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8">
@@ -70,6 +72,3 @@ export function browsePage(): string {
   `;
 }
 
-function escapeAttr(str: string): string {
-  return str.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}

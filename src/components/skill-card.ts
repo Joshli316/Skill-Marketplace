@@ -1,5 +1,6 @@
 import { Skill } from '../data/types';
 import { categoryPill } from './category-pill';
+import { escapeHtml } from '../utils';
 
 export function skillCard(skill: Skill): string {
   const triggers = skill.triggers
@@ -20,10 +21,3 @@ export function skillCard(skill: Skill): string {
   `;
 }
 
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
