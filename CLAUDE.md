@@ -3,7 +3,7 @@
 Discovery site for Claude Code community skills — browse, search, and install. Seeded with 28 skills, open for community contributions via GitHub PRs.
 
 ## Tech Stack
-TypeScript/HTML SPA on Cloudflare Pages. Esbuild bundler. Tailwind CSS v4. No framework — vanilla TypeScript with hash-based routing.
+TypeScript/HTML SPA on Cloudflare Pages. Esbuild bundler. Tailwind CSS v3. No framework — vanilla TypeScript with hash-based routing.
 
 ## Structure
 ```
@@ -13,8 +13,10 @@ Skill-Marketplace/
     main.ts               # App entry, router
     router.ts             # Hash-based routing
     search.ts             # Client-side search/filter
+    utils.ts              # Shared escapeHtml/escapeAttr helpers
     data/
       skills.json         # All skill data (bundled at build time)
+      types.ts            # Skill/Category types, CATEGORY_META with SVG icons
     components/
       home.ts             # Home page: hero, featured, categories
       browse.ts           # Browse page: search, filter, card grid
@@ -43,7 +45,7 @@ index.html
 `wrangler pages deploy dist/`
 
 ## Conventions
-- Clean Storefront aesthetic: light bg, Inter font, rounded cards, blue accent.
+- Editorial aesthetic: light bg, Inter font, sharp cards (4px radius), blue accent, warm amber CTA.
 - JetBrains Mono for code/triggers only.
 - Skills data is a JSON array bundled at build time — no API calls.
 - Search and filter are client-side, instant.

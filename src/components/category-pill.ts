@@ -4,8 +4,8 @@ export function categoryPill(category: Category, size: 'sm' | 'md' = 'sm'): stri
   const meta = CATEGORY_META[category];
   const padding = size === 'sm' ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm';
 
-  return `<span class="inline-flex items-center gap-1 rounded-pill font-medium ${padding} transition-opacity duration-150 hover:opacity-80"
-    style="background: ${meta.color}15; color: ${meta.color};">${meta.icon} ${meta.label}</span>`;
+  return `<span class="inline-flex items-center gap-1.5 rounded-pill font-medium ${padding} transition-opacity duration-150 hover:opacity-80"
+    style="background: ${meta.color}15; color: ${meta.color};">${meta.icon}${meta.label}</span>`;
 }
 
 export function categoryFilterPill(
@@ -22,11 +22,11 @@ export function categoryFilterPill(
   const meta = CATEGORY_META[category as Category];
   if (isActive) {
     return `<button data-category="${category}"
-      class="px-4 py-1.5 rounded-pill text-sm font-medium transition-all duration-150 whitespace-nowrap text-white"
-      style="background: ${meta.color};">${meta.icon} ${label}</button>`;
+      class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-pill text-sm font-medium transition-all duration-150 whitespace-nowrap text-white"
+      style="background: ${meta.color};">${meta.icon}${label}</button>`;
   }
 
   return `<button data-category="${category}"
-    class="px-4 py-1.5 rounded-pill text-sm font-medium transition-all duration-150 whitespace-nowrap hover:opacity-80"
-    style="background: ${meta.color}15; color: ${meta.color};">${meta.icon} ${label}</button>`;
+    class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-pill text-sm font-medium transition-all duration-150 whitespace-nowrap hover:opacity-80"
+    style="background: ${meta.color}15; color: ${meta.color};">${meta.icon}${label}</button>`;
 }

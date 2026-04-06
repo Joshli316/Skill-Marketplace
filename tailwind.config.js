@@ -36,10 +36,10 @@ module.exports = {
         mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
-        card: '12px',
+        card: '4px',
         pill: '9999px',
         button: '8px',
-        search: '12px',
+        search: '8px',
       },
       boxShadow: {
         card: '0 1px 3px rgba(0,0,0,0.06)',
