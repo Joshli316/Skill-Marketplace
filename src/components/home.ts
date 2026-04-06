@@ -33,7 +33,8 @@ export function homePage(): string {
     <section id="main" class="pt-20 pb-16 px-4 text-center">
       <div class="max-w-3xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-bold text-text-primary mb-4 tracking-tight">Claude Code Skills</h1>
-        <p class="text-lg text-text-secondary mb-8 max-w-xl mx-auto">Browse community-built skills for Claude Code. Install with one command.</p>
+        <p class="text-lg text-text-secondary mb-3 max-w-xl mx-auto">One command to teach Claude Code a new workflow.</p>
+        <p class="text-sm text-text-secondary mb-8 max-w-md mx-auto">Deploy with <code class="code-pill">/shipit</code>, review with <code class="code-pill">/roast</code>, plan with <code class="code-pill">/kickoff</code> — 28 skills and counting.</p>
         <div class="max-w-lg mx-auto">
           <input type="text" id="hero-search" placeholder="Search skills... (e.g. deploy, refactor, test)"
             class="search-input text-center" autocomplete="off" aria-label="Search skills">
@@ -77,7 +78,7 @@ export function homePage(): string {
       <div class="max-w-xl mx-auto card p-8">
         <h2 class="text-2xl font-semibold text-text-primary mb-3">Built a skill? Share it.</h2>
         <p class="text-text-secondary mb-6">Add your own skills to the catalog. All it takes is a pull request.</p>
-        <a href="#/submit" class="btn-primary inline-block">Submit a Skill</a>
+        <a href="#/submit" class="btn-primary inline-block">Add yours</a>
       </div>
     </section>
 

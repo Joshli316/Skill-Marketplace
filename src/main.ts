@@ -64,6 +64,18 @@ document.addEventListener('click', (e) => {
     return;
   }
 
+  // Share button
+  const shareBtn = target.closest('.share-btn') as HTMLElement | null;
+  if (shareBtn) {
+    const slug = shareBtn.dataset.slug;
+    const url = `${window.location.origin}${window.location.pathname}#/skill/${slug}`;
+    navigator.clipboard.writeText(url).then(() => {
+      shareBtn.innerHTML = shareBtn.innerHTML.replace('Copy link', 'Copied!');
+      setTimeout(() => { shareBtn.innerHTML = shareBtn.innerHTML.replace('Copied!', 'Copy link'); }, 1500);
+    }).catch(() => {});
+    return;
+  }
+
   // Copy button
   const copyBtn = target.closest('.copy-btn') as HTMLElement | null;
   if (copyBtn) {

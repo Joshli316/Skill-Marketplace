@@ -49,12 +49,12 @@ export function browsePage(): string {
 
         <!-- Filters row -->
         <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-          <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mb-1" id="category-filters">
+          <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mb-1" id="category-filters" role="group" aria-label="Filter by category">
             ${filterPills}
           </div>
-          <div class="flex items-center gap-2 sm:ml-auto shrink-0">
-            <button data-sort="az" class="text-sm px-3 py-1 rounded-button transition-colors ${sort === 'az' ? 'bg-text-primary text-white' : 'text-text-secondary hover:bg-gray-100'}">A–Z</button>
-            <button data-sort="recent" class="text-sm px-3 py-1 rounded-button transition-colors ${sort === 'recent' ? 'bg-text-primary text-white' : 'text-text-secondary hover:bg-gray-100'}">Recent</button>
+          <div class="flex items-center gap-2 sm:ml-auto shrink-0" role="group" aria-label="Sort order">
+            <button data-sort="az" aria-pressed="${sort === 'az'}" class="text-sm px-3 py-1 rounded-button transition-colors ${sort === 'az' ? 'bg-text-primary text-white' : 'text-text-secondary hover:bg-gray-100'}">A–Z</button>
+            <button data-sort="recent" aria-pressed="${sort === 'recent'}" class="text-sm px-3 py-1 rounded-button transition-colors ${sort === 'recent' ? 'bg-text-primary text-white' : 'text-text-secondary hover:bg-gray-100'}">Recent</button>
           </div>
         </div>
 
